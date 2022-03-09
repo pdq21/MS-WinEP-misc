@@ -1,0 +1,28 @@
+#https://github.com/lycheeverse/lychee-action
+name: lychee link checker
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * 5"
+
+jobs:
+  linkChecker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v1.3.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN_M365_TaC_DSC }}
+
+      - name: Create Issue From File
+        if: ${{ steps.lychee.outputs.exit_code != 0 }}
+        uses: peter-evans/create-issue-from-file@v3
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue

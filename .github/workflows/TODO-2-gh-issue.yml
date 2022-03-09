@@ -1,0 +1,29 @@
+#Customizable TODO-To-GitHub issue conversion
+#creates new issue if TODO-pattern is detected
+#https://github.com/marketplace/actions/todo-2-gh-issue
+name: "Create issues from TODO comment"
+on: ["push"]
+jobs:
+  build:
+    runs-on: "ubuntu-latest"
+    permissions:
+      issues: write
+    steps:
+      - uses: "actions/checkout@master"
+      - name: "TODO-2-GH-Issue"
+        uses: "Jamminroot/todo-2-gh-issue@1.2.1"
+        with:
+          TOKEN: ${{ secrets.GHPROJECT_TOKEN_M365_TaC_DSC }}
+          TODO_PATTERN: "(?<=(<#|#)+ *TODO[ :]).+" #positive look-behind assertion #\\/\\/ ?
+          GH_LABEL: "TODO"
+          TRIM: ",: \""
+          TIMEOUT: 1000
+          LINES_BEFORE: 2
+          LINES_AFTER: 5
+          LABELS_PATTERN: "(?<=\\[).+?(?=\\])"
+          LABELS_REPLACE_PATTERN: "\\[(.+?)\\]"
+          IGNORED_LINES_LENGTH: 255
+          EXCLUDED_PATHS: /FilePath/ToExclude/1|/FilePath/ToExclude/2
+          INCLUDED_PATHS: /FilePath/ToExclude/1/Exception|/FilePath/ToExclude/2/Exception
+          FILE_PATTERN: ".*cs"
+        id: "todo"
