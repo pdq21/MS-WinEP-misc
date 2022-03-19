@@ -1,8 +1,8 @@
 <#
-    .SYNOPSIS
+    	.SYNOPSIS
 	Disable and remove specific windows optional features, also called features on demand.
 #>
-$WOF = @(
+$wofPkgs = @(
 	"TelnetClient"
 	"DirectPlay"
 	"FaxServicesClientPackage"
@@ -45,7 +45,7 @@ $splatSL = @{
 }
 
 Write-Host "Searching for matching enabled WOF..."
-ForEach ($f in $WOF) {
+ForEach ($f in $wofPkgs) {
 	try {
 		Get-WindowsOptionalFeature -Online -FeatureName $f | `
 			Where-Object State -EQ Enabled | ForEach-Object {
