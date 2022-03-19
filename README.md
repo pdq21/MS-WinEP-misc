@@ -5,18 +5,18 @@ This is a short synopsis of some of the tools contained.
 
 ## PS1
 
-- `Remove-O365-pre-installed` could self-elevate itself
+- `Remove-O365-pre-installed` can self-elevate itself
 - `RemoteWipe-EpMdmWmi` uses a CIM-Class to reset Windows EP
 - `Restore-PhotoViewerLegacyAsDefault` uses a parallelised worfklow
-- `Distrib-FortiClientVPNCfg` distributes FortClient config contained inside the file
+- `Distrib-FortiClientVPNCfg` distributes FortClient config contained loaded from a stand-alone file
 - `Disable-OfficeVBA-10-13-16-19` uses parameters passed within nested foreach-methods 
 - `OpenWith-SecExecFileExt` changes the OpenWith-Key to Notepad.exe for specific file types (HTA, SCR, SCT, VBS, WSF) to avoid accidental execution by user
 
 ## BAT
 
 - `Get-UserFlagNoPw` uses WMIC to loop through all users with false PasswordRequired-flag
-- `Get-WLANKeys` extracts the clear keys from WLAN-Profiles if elevated
-- `Package-IntuneCPTBatch` uses the MS Intune Content Packaging Tool to package all MSI from an input folder to a output
+- `Get-WLANKeys` extracts clear keys from WLAN-Profiles if elevated
+- `Package-IntuneCPTBatch` uses the MS Intune Content Packaging Tool to package all MSI from an input folder to an output folder
 - `Disable-TelemetrieSchedTasks`, `Disable-UneccessaryServices` and `Disable-UWPAppsSchedTasks` build on the obsoleted [Windows Debloater from fdossena](https://fdossena.com/?p=w10debotnet/index_1903.frag) and are no longer maintained
 
 ## Hybrid
