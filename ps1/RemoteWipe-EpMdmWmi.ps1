@@ -2,8 +2,8 @@
     .SYNOPSIS
     Remote wipe EP with CIM/WMI MDM_RemoteWipe class
     .NOTES
-    Elevation to SYSTEM needed. Use MDM, Sysinternals or Nirsoft.
-    Comparison of PS1 to WMIC (params may need to be adjusted)
+    Elevation to SYSTEM needed. Use MDM, Sysinternals, Nirsoft or other tools and techniques.
+    Comparison of PS1 to WMIC (params may need adjustment)
     WMIC /namespace:\\%namespaceName% PATH %className% WHERE %filter% CALL %methodName%
     Inspect namespace: WMIC /namespace:[\\]<namespace> path __namespace (abs or rel)
     .LINK
