@@ -1,5 +1,4 @@
 @echo off
-rem 2022-05-19
 setlocal
 
 set purpose=-= Repack or create an installer with 7-zip =-
