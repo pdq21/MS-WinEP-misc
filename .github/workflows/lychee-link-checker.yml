@@ -15,7 +15,7 @@ jobs:
 
       - name: Link Checker
         id: lychee
-        uses: lycheeverse/lychee-action@v1.3.2
+        uses: lycheeverse/lychee-action@v2.0.2
         env:
           GITHUB_TOKEN: ${{ secrets.GHPROJECT_TOKEN_M365_TaC_DSC }}
 
